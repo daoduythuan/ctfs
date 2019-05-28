@@ -1,0 +1,23 @@
+<?php
+$otadmin = '{"hash":123}';
+if (!preg_match('/^{"hash": [0-9A-Z\"]+}$/', $otadmin)) {
+    echo "COOKIE TAMPERING xD IM A SECURITY EXPERT\n";
+    exit();
+}
+$session_data = json_decode($otadmin, true);
+//echo var_dump($session_data);
+//if ($session_data === NULL) { echo "COOKIE TAMPERING xD IM A SECURITY EXPERT\n"; exit(); }
+if ($session_data['hash'] != strtoupper(MD5($cfg_pass))) {
+    echo("I CAN EVEN GIVE YOU A HINT XD \n");
+
+    for ($i = 0; i < strlen(MD5('xDdddddd')); i==i+1) {
+        echo(ord(MD5($cfg_pass)[$i]) & 0xC0);
+    }
+
+    exit("\n");
+}
+
+display_admin();
+//solution brute force hash with intruder
+
+?>
