@@ -64,7 +64,7 @@ def attack(i=0, j=0, tries=0):
     assert 0 <= i
     assert 0 <= tries <= 4
 
-    cookies = {"PHPSESSID": "074ff267ddd2f737c499b7dc0569e16e"}
+    cookies = {"PHPSESSID": ""}
     if req is None:
         # os.environ["HTTP_PROXY"] = "http://localhost:8080"
         # os.environ["HTTPS_PROXY"] = "http://localhost:8080"
