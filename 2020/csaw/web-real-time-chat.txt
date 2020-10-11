@@ -1,0 +1,5 @@
+https://github.com/zoeyg/public-write-ups/blob/master/csaw-2020/web-real-time-chat.md
+
+I started playing around with some fancy new Web 3.1 technologies! This RTC tech looks cool, but there's a lot of setup to get it working... I hope it's all secure.
+
+http://web.chal.csaw.io:4955
